@@ -24,3 +24,9 @@ jobs:
         env:
         # Establece el entorno de integración continua
           CI: true
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+           token: ${{ secrets.CODECOV_TOKEN }} # No necesario para repositorios públicos
+           directory: ./coverage/ # La ruta del directorio de cobertura
+           fail_ci_if_error: true
